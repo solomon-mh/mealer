@@ -36,7 +36,7 @@ export default function NavBar() {
               href="/mealplan"
               className="text-gray-700 hover:text-emerald-500 transition-colors"
             >
-              Mealplan
+              Mealer
             </Link>
             {/* Profile Picture */}
             {user?.imageUrl ? (
