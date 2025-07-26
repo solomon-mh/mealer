@@ -1,6 +1,11 @@
 import { clerkMiddleware } from "@clerk/nextjs/server";
 
-export default clerkMiddleware();
+export default clerkMiddleware(async (auth, req) => {
+  const userAth = await auth();
+  const { userId } = userAth;
+
+  const { pathname, origin } = req.nextUrl;
+});
 
 export const config = {
   matcher: [
