@@ -15,9 +15,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ReactQueryClientProvider>
-      <html lang="en">
-        <body className="bg-gray-50 text-gray-900">
+    <html lang="en">
+      <body className="bg-gray-50 text-gray-900">
+        <ReactQueryClientProvider>
           <ClerkProvider>
             <NavBar />
             {/* Main container for page content */}
@@ -25,8 +25,8 @@ export default function RootLayout({
               {children}
             </main>
           </ClerkProvider>
-        </body>
-      </html>
-    </ReactQueryClientProvider>
+        </ReactQueryClientProvider>
+      </body>
+    </html>
   );
 }
