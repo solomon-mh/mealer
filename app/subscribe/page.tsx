@@ -67,7 +67,8 @@ export default function SubscribePage() {
   });
   function handleSubscribe(planType: string) {
     if (!userId) {
-      router.push("/sign-up");
+      const currentUrl = window.location.href; // full URL of the current page
+      router.push(`/sign-up?redirect_url=${encodeURIComponent(currentUrl)}`);
       return;
     }
     mutate({ planType });
