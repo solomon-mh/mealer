@@ -2,7 +2,7 @@ import { getPriceIDFromType } from "@/lib/plan";
 import { stripe } from "@/lib/stripe";
 import { NextRequest, NextResponse } from "next/server";
 
-export async function POSST(request: NextRequest) {
+export async function POST(request: NextRequest) {
   try {
     const { planType, userId, email } = await request.json();
 
