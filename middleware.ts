@@ -18,18 +18,19 @@ export default clerkMiddleware(async (auth, req) => {
   const { userId } = await auth();
   const { pathname, origin, search } = req.nextUrl;
 
-  // Allow public routes and API endpoints
   if (isPublicRoute(req)) {
     return NextResponse.next();
   }
-  // If authenticated and on sign-up -> redirect to mealplan
   if (isSignUpRoute(req) && userId) {
     return NextResponse.redirect(new URL("/mealplan", origin));
   }
 
-  // If not authenticated and trying to access a protected route
   if (!userId) {
-    // Don't overwrite if already has redirect_url in query
+    console.log(!req.nextUrl.searchParams.has("redirect_url"));
+    const requestedUrl = new URL(req.url);
+
+    console.log(requestedUrl);
+
     if (!req.nextUrl.searchParams.has("redirect_url")) {
       const signUpUrl = new URL("/sign-up", origin);
       let destination = pathname;
@@ -38,10 +39,8 @@ export default clerkMiddleware(async (auth, req) => {
         if (existingRedirect) {
           destination = existingRedirect;
         } else {
-          // If we're already on sign-up with no redirect_url, default to home
           destination = "/";
         }
-        // Only set redirect_url if we're not already on sign-up or if we need to preserve the original
         if (
           !isSignUpRoute(req) ||
           (isSignUpRoute(req) && destination !== pathname)
