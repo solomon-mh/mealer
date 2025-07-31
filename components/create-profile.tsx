@@ -25,8 +25,7 @@ export default function CreateProfileOnSignIn() {
       const data = await res.json();
       return data as ApiResponse;
     },
-    onSuccess: (data) => {
-      console.log(data.message);
+    onSuccess: () => {
       toast.success("Profile synchronized successfully.");
     },
     onError: (error) => {
