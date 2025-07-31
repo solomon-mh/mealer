@@ -70,7 +70,7 @@ export default function NavBar() {
               Home
             </Link>
             <Link
-              href={isSignedIn ? "/subscribe" : "/sign-up"}
+              href={isSignedIn ? "/subscribe" : "/subscribe"}
               className="text-gray-700 hover:text-emerald-500 transition-colors"
             >
               Subscribe
