@@ -7,7 +7,7 @@ import Image from "next/image";
 import { useUser, SignedIn, SignedOut, SignOutButton } from "@clerk/nextjs";
 
 export default function NavBar() {
-  const { isLoaded, isSignedIn, user } = useUser();
+  const { isLoaded, user } = useUser();
 
   if (!isLoaded) {
     // Optionally, return a loading indicator or skeleton here
@@ -70,7 +70,7 @@ export default function NavBar() {
               Home
             </Link>
             <Link
-              href={isSignedIn ? "/subscribe" : "/subscribe"}
+              href="/subscribe"
               className="text-gray-700 hover:text-emerald-500 transition-colors"
             >
               Subscribe
