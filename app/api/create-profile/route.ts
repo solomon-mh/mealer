@@ -1,9 +1,17 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
-import { currentUser } from "@clerk/nextjs/server";
+import { auth, currentUser } from "@clerk/nextjs/server";
 
 export async function POST() {
   try {
+    const { userId } = await auth();
+    if (!userId) {
+      return NextResponse.json(
+        { error: "User not found in Clerk." },
+        { status: 404 }
+      );
+    }
+
     const clerkUser = await currentUser();
     if (!clerkUser) {
       return NextResponse.json(
@@ -11,7 +19,6 @@ export async function POST() {
         { status: 404 }
       );
     }
-
     const email = clerkUser.emailAddresses?.[0]?.emailAddress || "";
     if (!email) {
       return NextResponse.json(
