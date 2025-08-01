@@ -26,26 +26,14 @@ export default clerkMiddleware(async (auth, req) => {
   }
 
   if (!userId) {
-    if (!req.nextUrl.searchParams.has("redirect_url")) {
-      const signUpUrl = new URL("/sign-up", origin);
-      let destination = pathname;
-      if (isSignUpRoute(req)) {
-        const existingRedirect = req.nextUrl.searchParams.get("redirect_url");
-        if (existingRedirect) {
-          destination = existingRedirect;
-        } else {
-          destination = "/";
-        }
-        if (
-          !isSignUpRoute(req) ||
-          (isSignUpRoute(req) && destination !== pathname)
-        ) {
-          signUpUrl.searchParams.set("redirect_url", destination + search);
-        }
-
-        if (!isSignUpRoute(req)) {
-          return NextResponse.redirect(signUpUrl);
-        }
+    const hasRedirect = req.nextUrl.searchParams.has("redirect_url");
+    const signUpUrl = new URL("/sign-up", origin);
+    if (!hasRedirect) {
+      if (isSignUpRoute(req) || isMealPlanRoute(req)) {
+        signUpUrl.searchParams.set("redirect_url", pathname + search);
+        console.log("signUpUrl");
+        console.log(signUpUrl);
+        return NextResponse.redirect(signUpUrl);
       }
     }
   }
