@@ -173,7 +173,7 @@ export default function MealPlanDashboard() {
               <button
                 type="submit"
                 disabled={mutation.isPending}
-                className={`w-full bg-emerald-500 text-white py-2 px-4 rounded-md hover:bg-emerald-600 transition-colors ${
+                className={`w-full bg-emerald-600 text-white py-2 px-4 rounded-md hover:bg-emerald-700 transition-colors ${
                   mutation.isPending ? "opacity-50 cursor-not-allowed" : ""
                 }`}
               >
