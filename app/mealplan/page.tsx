@@ -1,34 +1,13 @@
-// components/MealPlanDashboard.tsx
 "use client";
 
 import { useState } from "react";
 import { useMutation } from "@tanstack/react-query";
 import { Spinner } from "@/components/spinner";
-
-interface DailyMealPlan {
-  Breakfast?: string;
-  Lunch?: string;
-  Dinner?: string;
-  Snacks?: string;
-}
-
-interface WeeklyMealPlan {
-  [day: string]: DailyMealPlan;
-}
-
-interface MealPlanResponse {
-  mealPlan?: WeeklyMealPlan;
-  error?: string;
-}
-
-interface MealPlanInput {
-  dietType: string;
-  calories: number;
-  allergies: string;
-  cuisine: string;
-  snacks: boolean;
-  days?: number;
-}
+import {
+  DailyMealPlan,
+  MealPlanInput,
+  MealPlanResponse,
+} from "@/lib/interface";
 
 export default function MealPlanDashboard() {
   const [dietType, setDietType] = useState("");
