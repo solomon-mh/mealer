@@ -5,7 +5,7 @@ const isPublicRoute = createRouteMatcher([
   "/",
   "/sign-up(.*)",
   "/subscribe(.*)",
-  "/api/webhook(.*)",
+  "/api/webhooks(.*)",
   "/api/checkout(.*)",
   "/api/stripe-webhook(.*)",
   "/api/check-subscription(.*)",
@@ -26,11 +26,6 @@ export default clerkMiddleware(async (auth, req) => {
   }
 
   if (!userId) {
-    console.log(!req.nextUrl.searchParams.has("redirect_url"));
-    const requestedUrl = new URL(req.url);
-
-    console.log(requestedUrl);
-
     if (!req.nextUrl.searchParams.has("redirect_url")) {
       const signUpUrl = new URL("/sign-up", origin);
       let destination = pathname;
@@ -60,12 +55,10 @@ export default clerkMiddleware(async (auth, req) => {
     try {
       const response = await fetch(
         `${origin}/api/check-subscription?userId=${userId}`,
-        { method: "GET", headers: { "x-middleware-bypass": "true" } }
+        { method: "GET" }
       );
 
-      if (!response.ok) throw new Error("API error");
       const data = await response.json();
-
       if (!data.subscriptionActive) {
         return NextResponse.redirect(new URL("/subscribe", origin));
       }
