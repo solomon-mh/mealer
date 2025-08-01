@@ -5,9 +5,9 @@ export interface DailyMealPlan {
   Snacks?: string;
 }
 
-export interface WeeklyMealPlan {
-  [day: string]: DailyMealPlan;
-}
+export type WeeklyMealPlan = {
+  [day in DayOfWeek]: DailyMealPlan;
+};
 
 export interface MealPlanResponse {
   mealPlan?: WeeklyMealPlan;
@@ -22,3 +22,11 @@ export interface MealPlanInput {
   snacks: boolean;
   days?: number;
 }
+export type DayOfWeek =
+  | "Sunday"
+  | "Monday"
+  | "Tuesday"
+  | "Wednesday"
+  | "Thursday"
+  | "Friday"
+  | "Saturday";
