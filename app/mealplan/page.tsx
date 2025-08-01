@@ -5,6 +5,7 @@ import { useMutation } from "@tanstack/react-query";
 import { Spinner } from "@/components/spinner";
 import {
   DailyMealPlan,
+  DayOfWeek,
   MealPlanInput,
   MealPlanResponse,
 } from "@/lib/interface";
@@ -63,10 +64,10 @@ export default function MealPlanDashboard() {
   ];
 
   // Function to retrieve the meal plan for a specific day
-  const getMealPlanForDay = (day: string): DailyMealPlan | undefined => {
+  const getMealPlanForDay = (day: DayOfWeek): DailyMealPlan | undefined => {
     if (!mutation.data?.mealPlan) return undefined;
 
-    return mutation.data.mealPlan[day];
+    return mutation.data?.mealPlan[day];
   };
 
   return (
@@ -200,7 +201,7 @@ export default function MealPlanDashboard() {
             <div className="h-[600px] overflow-y-auto">
               <div className="space-y-6">
                 {daysOfWeek.map((day) => {
-                  const mealPlan = getMealPlanForDay(day);
+                  const mealPlan = getMealPlanForDay(day as DayOfWeek);
                   return (
                     <div
                       key={day}
@@ -210,7 +211,7 @@ export default function MealPlanDashboard() {
                         {day}
                       </h3>
                       {mealPlan ? (
-                        <div className="space-y-2">
+                        <div className="space-y-2 text-gray-600">
                           <div>
                             <strong>Breakfast:</strong> {mealPlan.Breakfast}
                           </div>
