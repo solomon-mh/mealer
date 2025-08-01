@@ -11,12 +11,14 @@ import { useRouter } from "next/navigation";
 import { Spinner } from "@/components/spinner";
 
 export default function ProfilePage() {
+  const defaultAvatar = "/default-avatar.png";
   const { isLoaded, isSignedIn, user } = useUser();
   const queryClient = useQueryClient();
   const router = useRouter();
 
   // State to manage selected priceId
   const [selectedPlan, setSelectedPlan] = useState<string>("");
+  const [imgSrc, setImgSrc] = useState(user?.imageUrl || defaultAvatar);
 
   // Fetch Subscription Details
   const {
@@ -153,11 +155,12 @@ export default function ProfilePage() {
           {/* Left Panel: Profile Information */}
           <div className="w-full md:w-1/3 p-6 bg-emerald-500 text-white flex flex-col items-center">
             <Image
-              src={user.imageUrl || "/default-avatar.png"} // Provide a default avatar if none
+              src={imgSrc} // Provide a default avatar if none
               alt="User Avatar"
               width={100}
               height={100}
               className="rounded-full mb-4"
+              onError={() => setImgSrc(defaultAvatar)}
             />
             <h1 className="text-2xl font-bold mb-2">
               {user.firstName} {user.lastName}
@@ -187,7 +190,7 @@ export default function ProfilePage() {
                     Current Plan
                   </h3>
                   {currentPlan ? (
-                    <>
+                    <div className="text-gray-600">
                       <p>
                         <strong>Plan:</strong> {currentPlan.name}
                       </p>
@@ -201,7 +204,7 @@ export default function ProfilePage() {
                           ? "ACTIVE"
                           : "INACTIVE"}
                       </p>
-                    </>
+                    </div>
                   ) : (
                     <p className="text-red-500">Current plan not found.</p>
                   )}
