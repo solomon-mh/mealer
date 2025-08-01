@@ -1,7 +1,7 @@
 // app/api/webhooks/route.ts
 
 import { NextRequest, NextResponse } from "next/server";
-import { prisma } from "@/lib/prisma"; // <-- import Prisma client
+import { prisma } from "@/lib/prisma";
 import Stripe from "stripe";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string);
@@ -9,8 +9,6 @@ const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET as string;
 type ExtendedInvoice = Stripe.Invoice & { subscription: string };
 
 export async function POST(req: NextRequest) {
-  console.log("\n WEBHOOK \n");
-
   const body = await req.text();
   const signature = req.headers.get("stripe-signature");
 
@@ -71,7 +69,6 @@ export async function POST(req: NextRequest) {
 const handleCheckoutSessionCompleted = async (
   session: Stripe.Checkout.Session
 ) => {
-  console.log("\n SESSION COMPLETED \n");
   const userId = session.metadata?.clerkUserId;
   console.log("Handling checkout.session.completed for user:", userId);
 
