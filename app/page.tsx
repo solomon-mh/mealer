@@ -1,25 +1,12 @@
 // app/page.tsx (HomePage)
 "use client";
 
-import Link from "next/link";
+import HeroSection from "@/components/Hero";
 
 export default function HomePage() {
   return (
     <div className="px-4 py-8 sm:py-12 lg:py-16 max-w-7xl mx-auto">
-      {/* Hero Section */}
-      <section className="bg-gradient-to-r from-emerald-400 to-emerald-600 text-white rounded-lg mb-12 p-8 text-center">
-        <h1 className="text-4xl font-bold mb-4">Personalized AI Meal Plans</h1>
-        <p className="text-xl mb-6">
-          Let our AI do the planning. You focus on cooking and enjoying!
-        </p>
-        <Link
-          href="/sign-up"
-          className="inline-block bg-white text-emerald-500 font-medium px-5 py-3 rounded hover:bg-gray-100 transition-colors"
-        >
-          Get Started
-        </Link>
-      </section>
-
+      <HeroSection />
       {/* How It Works Section */}
       <section id="how-it-works" className="mb-12">
         <div className="text-center mb-8">
