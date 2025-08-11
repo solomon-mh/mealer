@@ -150,10 +150,10 @@ export default function ProfilePage() {
     <div className="min-h-screen flex items-center justify-center p-4">
       <Toaster position="top-center" />{" "}
       {/* Optional: For toast notifications */}
-      <div className="w-full max-w-5xl bg-gray-800 shadow-lg rounded-lg overflow-hidden">
+      <div className="w-full max-w-5xl bg-gray-900 border-r border-r-gray-700 rounded-lg overflow-hidden">
         <div className="flex flex-col md:flex-row">
           {/* Left Panel: Profile Information */}
-          <div className="w-full md:w-1/3 p-6 bg-gray-900 border-r border-r-gray-700 text-white flex flex-col items-center">
+          <div className="w-full md:w-1/3 p-6 lg:border-r border-r-gray-500 text-white flex flex-col items-center">
             <Image
               src={imgSrc} // Provide a default avatar if none
               alt="User Avatar"
@@ -169,7 +169,7 @@ export default function ProfilePage() {
           </div>
 
           {/* Right Panel: Subscription Details */}
-          <div className="w-full md:w-2/3 p-6 bg-gray-800">
+          <div className="w-full md:w-2/3 p-6">
             <h2 className="text-2xl font-bold mb-6 text-gray-100">
               Subscription Details
             </h2>
