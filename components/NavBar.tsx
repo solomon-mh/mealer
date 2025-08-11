@@ -20,8 +20,8 @@ export default function NavBar() {
         {/* Brand / Logo */}
         <Link href="/">
           <Image
-            className="text-xl font-bold text-emerald-700 rounded-4xl cursor-pointer"
-            src="/logo.png" // Ensure this path is correct or replace with your logo path
+            className="rounded-4xl cursor-pointer"
+            src="/logo.png"
             width={60}
             height={60}
             alt="Logo"
@@ -56,7 +56,7 @@ export default function NavBar() {
 
             {/* Sign Out Button */}
             <SignOutButton>
-              <button className="ml-4 px-4 py-2 bg-emerald-500 text-white rounded hover:bg-emerald-600 transition">
+              <button className="ml-4 px-4 py-2 bg-emerald-500 text-white rounded-xl hover:bg-emerald-600 transition">
                 Sign Out
               </button>
             </SignOutButton>
@@ -78,7 +78,7 @@ export default function NavBar() {
 
             <Link
               href="/sign-up"
-              className="px-4 py-2 bg-emerald-500 text-white rounded-2xl hover:bg-emerald-600 transition"
+              className="px-4 py-2 bg-emerald-500 text-white rounded-xl hover:bg-emerald-600 transition"
             >
               Sign Up
             </Link>
