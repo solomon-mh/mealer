@@ -13,7 +13,7 @@ export async function POST(request: NextRequest) {
       await request.json();
 
     const prompt = `
-      You are a professional nutritionist. Create a 7-day meal plan for an individual following a ${dietType} diet aiming for ${calories} calories per day.
+      You are a professional nutritionist. Create a 7-day meal plan for an individual following a ${dietType} diet aiming for ${calories} calories per day.Rememeber the total sum of breakfast,lunch and dinner calories must be exactly ${calories}.
       
       Allergies or restrictions: ${allergies || "none"}.
       Preferred cuisine: ${cuisine || "no preference"}.
