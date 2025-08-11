@@ -72,9 +72,9 @@ export default function MealPlanDashboard() {
 
   return (
     <div className="min-h-screen flex items-center justify-center  p-4">
-      <div className="w-full max-w-6xl flex flex-col md:flex-row bg-white shadow-lg rounded-lg overflow-hidden">
+      <div className="w-full max-w-6xl flex flex-col md:flex-row bg-white shadow-lg rounded-2xl overflow-hidden">
         {/* Left Panel: Form */}
-        <div className="w-full md:w-1/3 lg:w-1/4 p-6 bg-emerald-500 text-white">
+        <div className="w-full md:w-1/3 lg:w-1/4 p-6 bg-gray-900 text-gray-200">
           <h1 className="text-2xl font-bold mb-6 text-center">
             AI Meal Plan Generator
           </h1>
@@ -93,7 +93,7 @@ export default function MealPlanDashboard() {
                 value={dietType}
                 onChange={(e) => setDietType(e.target.value)}
                 required
-                className="w-full px-3 py-2 border border-emerald-300 rounded-md text-black focus:outline-none focus:ring-2 focus:ring-emerald-400"
+                className="w-full px-3 py-2 border border-gray-500 rounded-md text-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-400"
                 placeholder="e.g., Vegetarian, Keto, Mediterranean"
               />
             </div>
@@ -114,7 +114,7 @@ export default function MealPlanDashboard() {
                 required
                 min={500}
                 max={5000}
-                className="w-full px-3 py-2 border border-emerald-300 rounded-md text-black focus:outline-none focus:ring-2 focus:ring-emerald-400"
+                className="w-full px-3 py-2 border border-gray-500 rounded-md text-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-400"
                 placeholder="e.g., 2000"
               />
             </div>
@@ -132,7 +132,7 @@ export default function MealPlanDashboard() {
                 id="allergies"
                 value={allergies}
                 onChange={(e) => setAllergies(e.target.value)}
-                className="w-full px-3 py-2 border border-emerald-300 rounded-md text-black focus:outline-none focus:ring-2 focus:ring-emerald-400"
+                className="w-full px-3 py-2 border border-gray-500 rounded-md text-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-400"
                 placeholder="e.g., Nuts, Dairy, None"
               />
             </div>
@@ -150,7 +150,7 @@ export default function MealPlanDashboard() {
                 id="cuisine"
                 value={cuisine}
                 onChange={(e) => setCuisine(e.target.value)}
-                className="w-full px-3 py-2 border border-emerald-300 rounded-md text-black focus:outline-none focus:ring-2 focus:ring-emerald-400"
+                className="w-full px-3 py-2 border border-gray-500 rounded-md text-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-400"
                 placeholder="e.g., Italian, Chinese, No Preference"
               />
             </div>
@@ -162,7 +162,7 @@ export default function MealPlanDashboard() {
                 id="snacks"
                 checked={snacks}
                 onChange={(e) => setSnacks(e.target.checked)}
-                className="h-4 w-4 text-emerald-300 border-emerald-300 rounded"
+                className="h-4 w-4 text-emerald-300 border-gray-500 rounded"
               />
               <label htmlFor="snacks" className="ml-2 block text-sm text-white">
                 Include Snacks
@@ -192,8 +192,8 @@ export default function MealPlanDashboard() {
         </div>
 
         {/* Right Panel: Weekly Meal Plan Display */}
-        <div className="w-full md:w-2/3 lg:w-3/4 p-6 bg-gray-50">
-          <h2 className="text-2xl font-bold mb-6 text-emerald-700">
+        <div className="w-full md:w-2/3 lg:w-3/4 p-6 bg-gray-800">
+          <h2 className="text-2xl font-bold mb-6 text-gray-200">
             Weekly Meal Plan
           </h2>
 
@@ -205,9 +205,9 @@ export default function MealPlanDashboard() {
                   return (
                     <div
                       key={day}
-                      className="bg-white shadow-md rounded-lg p-4 border border-emerald-200"
+                      className="bg-white shadow-md rounded-lg p-4 border border-gray-500"
                     >
-                      <h3 className="text-xl font-semibold mb-2 text-emerald-600">
+                      <h3 className="text-xl font-semibold mb-2 text-gray-200">
                         {day}
                       </h3>
                       {mealPlan ? (
@@ -228,7 +228,7 @@ export default function MealPlanDashboard() {
                           )}
                         </div>
                       ) : (
-                        <p className="text-gray-500">No meal plan available.</p>
+                        <p className="text-gray-200">No meal plan available.</p>
                       )}
                     </div>
                   );
@@ -241,7 +241,7 @@ export default function MealPlanDashboard() {
               <Spinner />
             </div>
           ) : (
-            <p className="text-gray-600">
+            <p className="text-gray-200">
               Please generate a meal plan to see it here.
             </p>
           )}
