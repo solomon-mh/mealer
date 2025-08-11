@@ -11,9 +11,12 @@ export async function POST(request: NextRequest) {
   try {
     const { dietType, calories, allergies, cuisine, snacks } =
       await request.json();
+    console.log(calories);
+    console.log(calories);
 
     const prompt = `
-      You are a professional nutritionist. Create a 7-day meal plan for an individual following a ${dietType} diet aiming for ${calories} calories per day.Rememeber the total sum of breakfast,lunch and dinner calories must be exactly ${calories}.
+      You are a professional nutritionist. Create a 7-day meal plan for an individual following a ${dietType} diet aiming for ${calories} calories per day.Rememeber The **sum of calories** for all meals in a single day **must be exactly ${calories} calories**, no more and no less.  
+
       
       Allergies or restrictions: ${allergies || "none"}.
       Preferred cuisine: ${cuisine || "no preference"}.
