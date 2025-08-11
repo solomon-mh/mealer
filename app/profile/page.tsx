@@ -130,7 +130,7 @@ export default function ProfilePage() {
   // Loading or Not Signed In States
   if (!isLoaded) {
     return (
-      <div className="flex items-center justify-center min-h-screen bg-emerald-100">
+      <div className="flex items-center justify-center min-h-screen">
         <Spinner />
         <span className="ml-2">Loading...</span>
       </div>
@@ -139,7 +139,7 @@ export default function ProfilePage() {
 
   if (!isSignedIn) {
     return (
-      <div className="flex items-center justify-center min-h-screen bg-emerald-100">
+      <div className="flex items-center justify-center min-h-screen">
         <p>Please sign in to view your profile.</p>
       </div>
     );
@@ -147,13 +147,13 @@ export default function ProfilePage() {
 
   // Main Profile Page UI
   return (
-    <div className="min-h-screen flex items-center justify-center bg-emerald-100 p-4">
+    <div className="min-h-screen flex items-center justify-center p-4">
       <Toaster position="top-center" />{" "}
       {/* Optional: For toast notifications */}
-      <div className="w-full max-w-5xl bg-white shadow-lg rounded-lg overflow-hidden">
+      <div className="w-full max-w-5xl bg-gray-800 shadow-lg rounded-lg overflow-hidden">
         <div className="flex flex-col md:flex-row">
           {/* Left Panel: Profile Information */}
-          <div className="w-full md:w-1/3 p-6 bg-emerald-500 text-white flex flex-col items-center">
+          <div className="w-full md:w-1/3 p-6 bg-gray-900 border-r border-r-gray-700 text-white flex flex-col items-center">
             <Image
               src={imgSrc} // Provide a default avatar if none
               alt="User Avatar"
@@ -170,8 +170,8 @@ export default function ProfilePage() {
           </div>
 
           {/* Right Panel: Subscription Details */}
-          <div className="w-full md:w-2/3 p-6 bg-gray-50">
-            <h2 className="text-2xl font-bold mb-6 text-emerald-700">
+          <div className="w-full md:w-2/3 p-6 bg-gray-800">
+            <h2 className="text-2xl font-bold mb-6 text-gray-100">
               Subscription Details
             </h2>
 
@@ -185,8 +185,8 @@ export default function ProfilePage() {
             ) : subscription ? (
               <div className="space-y-6">
                 {/* Current Subscription Info */}
-                <div className="bg-white shadow-md rounded-lg p-4 border border-emerald-200">
-                  <h3 className="text-xl font-semibold mb-2 text-emerald-600">
+                <div className="bg-gray-800 shadow-md rounded-lg p-4 border border-gray-500">
+                  <h3 className="text-xl font-semibold mb-2 text-gray-200">
                     Current Plan
                   </h3>
                   {currentPlan ? (
@@ -211,14 +211,14 @@ export default function ProfilePage() {
                 </div>
 
                 {/* Change Subscription Plan */}
-                <div className="bg-white shadow-md rounded-lg p-4 border border-emerald-200">
-                  <h3 className="text-xl font-semibold mb-2 text-emerald-600">
+                <div className="bg-gray-800 shadow-md rounded-lg p-4 border border-gray-500">
+                  <h3 className="text-xl font-semibold mb-2 text-gray-200">
                     Change Subscription Plan
                   </h3>
                   <select
                     onChange={handleChangePlan}
                     defaultValue={currentPlan?.interval}
-                    className="w-full px-3 py-2 border border-emerald-300 rounded-md text-black focus:outline-none focus:ring-2 focus:ring-emerald-400"
+                    className="w-full px-3 py-2 border border-gray-500 bg-gray-800 rounded-md text-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-400"
                     disabled={changePlanMutation.isPending}
                   >
                     <option value="" disabled>
@@ -241,7 +241,7 @@ export default function ProfilePage() {
                   </select>
                   <button
                     onClick={handleConfirmChangePlan}
-                    className="mt-3 p-2 bg-emerald-500 rounded-lg text-white"
+                    className="mt-3 p-2 rounded-lg text-white"
                   >
                     Save Change
                   </button>
@@ -254,8 +254,8 @@ export default function ProfilePage() {
                 </div>
 
                 {/* Unsubscribe */}
-                <div className="bg-white shadow-md rounded-lg p-4 border border-emerald-200">
-                  <h3 className="text-xl font-semibold mb-2 text-emerald-600">
+                <div className="shadow-md rounded-lg p-4 border border-gray-500">
+                  <h3 className="text-xl font-semibold mb-2 text-gray-200">
                     Unsubscribe
                   </h3>
                   <button
