@@ -190,7 +190,7 @@ export default function ProfilePage() {
                     Current Plan
                   </h3>
                   {currentPlan ? (
-                    <div className="text-gray-600">
+                    <div className="text-gray-200">
                       <p>
                         <strong>Plan:</strong> {currentPlan.name}
                       </p>
