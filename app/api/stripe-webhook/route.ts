@@ -70,8 +70,6 @@ const handleCheckoutSessionCompleted = async (
   session: Stripe.Checkout.Session
 ) => {
   const userId = session.metadata?.clerkUserId;
-  console.log("Handling checkout.session.completed for user:", userId);
-
   if (!userId) {
     console.error("No userId found in session metadata.");
     return;
@@ -108,11 +106,6 @@ const handleCheckoutSessionCompleted = async (
 // Handler for failed invoice payments
 const handleInvoicePaymentFailed = async (invoice: ExtendedInvoice) => {
   const subscriptionId = invoice.subscription as string;
-  console.log(
-    "Handling invoice.payment_failed for subscription:",
-    subscriptionId
-  );
-
   if (!subscriptionId) {
     console.error("No subscription ID found in invoice.");
     return;
