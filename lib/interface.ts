@@ -16,7 +16,7 @@ export interface MealPlanResponse {
 
 export interface MealPlanInput {
   dietType: string;
-  calories: number;
+  calories: number | string;
   allergies: string;
   cuisine: string;
   snacks: boolean;

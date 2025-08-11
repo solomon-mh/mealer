@@ -12,7 +12,7 @@ import {
 
 export default function MealPlanDashboard() {
   const [dietType, setDietType] = useState("");
-  const [calories, setCalories] = useState<number>(2000);
+  const [calories, setCalories] = useState<number | string>(2000);
   const [allergies, setAllergies] = useState("");
   const [cuisine, setCuisine] = useState("");
   const [snacks, setSnacks] = useState(false);
@@ -110,7 +110,11 @@ export default function MealPlanDashboard() {
                 type="number"
                 id="calories"
                 value={calories}
-                onChange={(e) => setCalories(Number(e.target.value))}
+                onChange={(e) =>
+                  setCalories(
+                    e.target.value === "" ? "" : Number(e.target.value)
+                  )
+                }
                 required
                 min={500}
                 max={5000}
