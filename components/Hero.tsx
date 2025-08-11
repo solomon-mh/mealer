@@ -67,7 +67,7 @@ const HeroSection = () => {
         animate="visible"
       >
         <motion.h1
-          className="text-4xl md:text-6xl font-bold font-sans mb-4 md:mb-10 bg-clip-text text-transparent bg-gradient-to-r from-white to-emerald-100"
+          className="text-4xl md:text-6xl font-bold mb-4 md:mb-10 bg-clip-text text-transparent bg-gradient-to-r from-white to-emerald-100"
           variants={itemVariants}
         >
           AI-Powered Meal Planner
