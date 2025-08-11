@@ -6,7 +6,7 @@ import ReactQueryClientProvider from "@/components/react-query-client-provider";
 import CreateProfileOnSignIn from "@/components/create-profile";
 
 export const metadata: Metadata = {
-  title: "AI Meal Plans | Simple SaaS Demo",
+  title: "Mealer | AI Meal Plans | SaaS",
   description: "Generate personalized meal plans with OpenAI",
 };
 
