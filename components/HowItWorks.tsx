@@ -58,13 +58,13 @@ const HowItWorks = () => {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 px-4"
+        className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 px-4"
       >
         {/* Step 1 */}
         <motion.div
           variants={item}
           whileHover={stepHover}
-          className="bg-gradient-to-b from-gray-900 to-gray-950 rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-emerald-100"
+          className="bg-gradient-to-b from-gray-900 to-gray-950 rounded-xl p-8 transition-transform duration-300 border-[2px] border-gray-500"
         >
           <motion.div
             whileHover={iconHover}
@@ -89,7 +89,7 @@ const HowItWorks = () => {
         <motion.div
           variants={item}
           whileHover={stepHover}
-          className="bg-gradient-to-b from-gray-900 to-gray-950 rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-emerald-100 transform md:translate-y-8"
+          className="bg-gradient-to-b from-gray-900 to-gray-950 rounded-xl p-8 transition-all duration-100 border-[2px] border-gray-500 transform lg:translate-y-8"
         >
           <motion.div
             whileHover={iconHover}
@@ -114,7 +114,7 @@ const HowItWorks = () => {
         <motion.div
           variants={item}
           whileHover={stepHover}
-          className="bg-gradient-to-b from-gray-900 to-gray-950 rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-emerald-100"
+          className="bg-gradient-to-b from-gray-900 to-gray-950 rounded-xl p-8 transition-all duration-100 border-[2px] border-gray-500"
         >
           <motion.div
             whileHover={iconHover}
