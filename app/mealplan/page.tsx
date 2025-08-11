@@ -205,13 +205,13 @@ export default function MealPlanDashboard() {
                   return (
                     <div
                       key={day}
-                      className="bg-white shadow-md rounded-lg p-4 border border-gray-500"
+                      className="bg-gray-800 shadow-md rounded-lg p-4 border border-gray-500"
                     >
                       <h3 className="text-xl font-semibold mb-2 text-gray-200">
                         {day}
                       </h3>
                       {mealPlan ? (
-                        <div className="space-y-2 text-gray-600">
+                        <div className="space-y-2 text-gray-100">
                           <div>
                             <strong>Breakfast:</strong> {mealPlan.Breakfast}
                           </div>
