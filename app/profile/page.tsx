@@ -166,7 +166,6 @@ export default function ProfilePage() {
               {user.firstName} {user.lastName}
             </h1>
             <p className="mb-4">{user.primaryEmailAddress?.emailAddress}</p>
-            {/* Add more profile details or edit options as needed */}
           </div>
 
           {/* Right Panel: Subscription Details */}
@@ -241,7 +240,7 @@ export default function ProfilePage() {
                   </select>
                   <button
                     onClick={handleConfirmChangePlan}
-                    className="mt-3 p-2 rounded-lg text-white"
+                    className="mt-4 p-2 bg-emerald-500 cursor-pointer hover:scale-105 rounded-lg text-white"
                   >
                     Save Change
                   </button>
@@ -254,24 +253,26 @@ export default function ProfilePage() {
                 </div>
 
                 {/* Unsubscribe */}
-                <div className="shadow-md rounded-lg p-4 border border-gray-500">
-                  <h3 className="text-xl font-semibold mb-2 text-gray-200">
-                    Unsubscribe
-                  </h3>
-                  <button
-                    onClick={handleUnsubscribe}
-                    disabled={unsubscribeMutation.isPending}
-                    className={`w-full bg-red-500 text-white py-2 px-4 rounded-md hover:bg-red-600 transition-colors ${
-                      unsubscribeMutation.isPending
-                        ? "opacity-50 cursor-not-allowed"
-                        : ""
-                    }`}
-                  >
-                    {unsubscribeMutation.isPending
-                      ? "Unsubscribing..."
-                      : "Unsubscribe"}
-                  </button>
-                </div>
+                {currentPlan && (
+                  <div className="shadow-md rounded-lg p-4 border border-gray-500">
+                    <h3 className="text-xl font-semibold mb-2 text-gray-200">
+                      Unsubscribe
+                    </h3>
+                    <button
+                      onClick={handleUnsubscribe}
+                      disabled={unsubscribeMutation.isPending}
+                      className={`w-full bg-red-500 text-white py-2 px-4 rounded-md hover:bg-red-600 transition-colors ${
+                        unsubscribeMutation.isPending
+                          ? "opacity-50 cursor-not-allowed"
+                          : ""
+                      }`}
+                    >
+                      {unsubscribeMutation.isPending
+                        ? "Unsubscribing..."
+                        : "Unsubscribe"}
+                    </button>
+                  </div>
+                )}
               </div>
             ) : (
               <p>You are not subscribed to any plan.</p>
