@@ -15,12 +15,12 @@ export default function NavBar() {
   }
 
   return (
-    <nav className="fixed top-0 left-0 w-full bg-white shadow-sm z-50">
-      <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+    <nav className="fixed top-0 left-0 w-full border bg-black border-b-gray-800 text-white shadow-sm z-50">
+      <div className="px-12 mx-auto py-3 flex items-center justify-between">
         {/* Brand / Logo */}
         <Link href="/">
           <Image
-            className="text-xl font-bold text-emerald-700 cursor-pointer"
+            className="text-xl font-bold text-emerald-700 rounded-4xl cursor-pointer"
             src="/logo.png" // Ensure this path is correct or replace with your logo path
             width={60}
             height={60}
@@ -34,7 +34,7 @@ export default function NavBar() {
           <SignedIn>
             <Link
               href="/mealplan"
-              className="text-gray-700 hover:text-emerald-500 transition-colors"
+              className="text-gray-100 hover:text-emerald-500 transition-colors"
             >
               Mealer
             </Link>
@@ -65,20 +65,20 @@ export default function NavBar() {
           <SignedOut>
             <Link
               href="/"
-              className="text-gray-700 hover:text-emerald-500 transition-colors"
+              className="text-gray-100 hover:text-emerald-500 transition-colors"
             >
               Home
             </Link>
             <Link
               href="/subscribe"
-              className="text-gray-700 hover:text-emerald-500 transition-colors"
+              className="text-gray-100 hover:text-emerald-500 transition-colors"
             >
               Subscribe
             </Link>
 
             <Link
               href="/sign-up"
-              className="px-4 py-2 bg-emerald-500 text-white rounded hover:bg-emerald-600 transition"
+              className="px-4 py-2 bg-emerald-500 text-white rounded-2xl hover:bg-emerald-600 transition"
             >
               Sign Up
             </Link>
