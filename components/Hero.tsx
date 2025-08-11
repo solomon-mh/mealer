@@ -41,7 +41,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative overflow-hidden text-white rounded-2xl mb-12 p-8 md:p-12 text-center">
+    <section className="relative overflow-hidden text-white rounded-2xl min-h-screen flex items-center justify-center text-center">
       {/* Animated background elements */}
       <motion.div
         className="absolute top-0 left-0 w-full h-full opacity-10"
@@ -67,10 +67,10 @@ const HeroSection = () => {
         animate="visible"
       >
         <motion.h1
-          className="text-4xl md:text-6xl font-bold font-sans mb-4 md:mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-emerald-100"
+          className="text-4xl md:text-6xl font-bold font-sans mb-4 md:mb-10 bg-clip-text text-transparent bg-gradient-to-r from-white to-emerald-100"
           variants={itemVariants}
         >
-          AI-Powered Meal Planning
+          AI-Powered Meal Planner
         </motion.h1>
 
         <motion.p
@@ -102,13 +102,64 @@ const HeroSection = () => {
           variants={itemVariants}
         >
           <div className="flex items-center text-sm">
-            <span className="mr-2">✅</span> Dietary Customization
+            <span className="mr-2">
+              {" "}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="flex-shrink-0 w-6 h-6 text-emerald-500"
+              >
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+            </span>{" "}
+            Dietary Customization
           </div>
           <div className="flex items-center text-sm">
-            <span className="mr-2">✅</span> Smart Grocery Lists
+            <span className="mr-2">
+              {" "}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="flex-shrink-0 w-6 h-6 text-emerald-500"
+              >
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+            </span>{" "}
+            Smart Grocery Lists
           </div>
           <div className="flex items-center text-sm">
-            <span className="mr-2">✅</span> Time-Saving Recipes
+            <span className="mr-2">
+              {" "}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="flex-shrink-0 w-6 h-6 text-emerald-500"
+              >
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+            </span>{" "}
+            Time-Saving Recipes
           </div>
         </motion.div>
       </motion.div>
